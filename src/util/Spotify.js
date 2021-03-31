@@ -1,5 +1,5 @@
 const clientID = '7f7fe195f74e464b9d568581d47aee05';
-const redirectUri = 'http://axel-jamming.surge.sh';
+const redirectUri = 'http://localhost:3000/';
 
 let accessToken;
 
