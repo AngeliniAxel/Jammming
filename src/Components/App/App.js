@@ -26,12 +26,21 @@ class App extends React.Component {
 		}
 		const newPlaylist = this.state.playlistTracks;
 		newPlaylist.push(track);
-		this.setState({ playlistTracks: newPlaylist });
+
+		//removing the added file from the search results
+		const newSearchresults = this.state.searchResults.filter((savedTrack) => savedTrack !== track);
+
+		this.setState({ playlistTracks: newPlaylist, searchResults: newSearchresults });
 	}
 
 	removeTrack(track) {
 		const tracks = this.state.playlistTracks.filter((savedTrack) => savedTrack !== track);
-		this.setState({ playlistTracks: tracks });
+
+		//Adding the removed file to the search results
+		const newSearchresults = this.state.searchResults;
+		newSearchresults.unshift(track);
+
+		this.setState({ playlistTracks: tracks, searchResults: newSearchresults });
 	}
 
 	updatePlaylistName(name) {
@@ -55,7 +64,7 @@ class App extends React.Component {
 		return (
 			<div>
 				<h1>
-					Ja<span className='highlight'>mmm</span>ing
+					Ja<span className='highlight'>mm456m</span>ing
 				</h1>
 				<div className='App'>
 					<SearchBar onSearch={this.search} />
